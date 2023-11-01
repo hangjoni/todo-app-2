@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h3 class="bg-pink-300">Hello World</h3>
+    <MainHeader />
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import MainHeader from './components/MainHeader.vue'
+</script>
 
 <style lang="scss" scoped></style>

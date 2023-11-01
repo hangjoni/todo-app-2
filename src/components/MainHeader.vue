@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div class="bg-blue-700 p-2 text-white">To-Do List</div>
 </template>
 
 <script>
