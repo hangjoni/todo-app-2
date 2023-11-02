@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ToDoFilter @updateFilter="handleUpdateFilter" />
+    <ToDoSummary :itemsList="_items" />
     <ToDoList
       :modelValue="_items"
       @toggle="toggleStatus"
@@ -22,6 +22,7 @@
 import { ref, inject } from 'vue'
 import ToDoList from './ToDoList.vue'
 import ToDoItemForm from './ToDoItemForm.vue'
+import ToDoSummary from './ToDoSummary.vue'
 import todoService from '../services/todo'
 
 const $modals = inject('$modals')
