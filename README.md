@@ -14,3 +14,10 @@
   But here since we want to pass the props into this input form, but the props were not and cannot be created as a reactive variable, we use \_item as a middle man. \_item takes value from the prop, and is updated when props updated. When emitUpdate is called, we emit back the updated \_item.value to the parent
 
 This works but this kind of code is hard to read, and error prone. Is there a more elegant way to bind prop with an input reactive field?
+
+- Include CDN link for font-awesome inside index.html so we don't have to copy paste the css folder
+
+```
+<!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+```
