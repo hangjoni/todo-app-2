@@ -1,4 +1,5 @@
 <template>
+  <ToDoFilter @updateFilter="handleUpdateFilter" />
   <table>
     <!-- Title -->
     <thead>
@@ -38,21 +39,29 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import ToDoFilter from './ToDoFilter.vue'
+
+const filter = ref('')
+
 const $props = defineProps({
-  modelValue: { type: Array, default: () => [] },
-  filter: { type: String, default: '' }
+  modelValue: { type: Array, default: () => [] }
 })
 const $emit = defineEmits(['edit', 'delete', 'toggle'])
 const _filtered_list = computed(() => {
-  if ($props.filter) {
+  if (filter.value) {
     return $props.modelValue.filter((item) => {
-      return item.text.toUpperCase().includes($props.filter.toUpperCase())
+      return item.text.toUpperCase().includes(filter.value.toUpperCase())
     })
   } else {
     return $props.modelValue
   }
 })
+
+const handleUpdateFilter = (updatedFilterText) => {
+  filter.value = updatedFilterText
+}
+
 const emitEvent = (event_name, payload) => {
   $emit(event_name, payload)
 }

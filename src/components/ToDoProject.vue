@@ -1,8 +1,8 @@
 <template>
   <div>
+    <ToDoFilter @updateFilter="handleUpdateFilter" />
     <ToDoList
       :modelValue="_items"
-      :filter="_filter"
       @toggle="toggleStatus"
       @delete="deleteItem"
       @edit="showModal(false, $event)"
@@ -25,7 +25,6 @@ import ToDoItemForm from './ToDoItemForm.vue'
 import todoService from '../services/todo'
 
 const $modals = inject('$modals')
-const _filter = ref('')
 const _item = ref(todoService.getDefault())
 const _items = ref([])
 
