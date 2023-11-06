@@ -4,11 +4,14 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Landing,
-    beforeEnter: (to, from) => {
-      console.log('inside vue router')
-    }
+    name: 'landing',
+    component: Landing
+  },
+  {
+    path: '/project/:id',
+    name: 'project',
+    component: () => import('../views/Project.vue'),
+    props: true
   }
 ]
 
