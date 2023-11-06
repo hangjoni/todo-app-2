@@ -1,7 +1,11 @@
 <template>
-  <div>Landing</div>
+  <div class="landing">Landing</div>
 </template>
 
 <script setup></script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.landing {
+  overflow: hidden;
+}
+</style>

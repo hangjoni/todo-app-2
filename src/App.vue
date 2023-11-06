@@ -1,14 +1,20 @@
 <template>
-  <div>
-    <MainHeader />
-    <ToDoProject />
+  <div class="app">
+    <SideBar></SideBar>
     <router-view></router-view>
   </div>
 </template>
 
 <script setup>
-import MainHeader from './components/ToDo/MainHeader.vue'
-import ToDoProject from './components/ToDo/ToDoProject.vue'
+import SideBar from './components/SideBar/SideBar.vue'
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 12rem auto;
+  overflow: hidden;
+}
+</style>

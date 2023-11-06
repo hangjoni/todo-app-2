@@ -1,5 +1,5 @@
 <template>
-  <div>Sidebar</div>
+  <div class="bg-sky-500">Sidebar</div>
 </template>
 
 <script setup></script>
