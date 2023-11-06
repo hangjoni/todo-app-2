@@ -28,6 +28,30 @@ const service = {
       case 'completed':
         return 'not_started'
     }
+  },
+  loadProjectsManifest() {
+    if (localStorage.getItem('projectsManifest') == null) {
+      service.saveProjectsManifest({ next_id: 0, list: [] })
+    }
+    const projects = JSON.parse(localStorage.getItem('projectsManifest'))
+    return projects
+  },
+  saveProjectsManifest(projects) {
+    localStorage.setItem('projectsManifest', JSON.stringify(projects))
+  },
+  createToDoProject(name) {
+    /* A real Project is a list of todo task (for example as returned by getDefault()) */
+    // create an empty data
+
+    // save this project into projectsManifiest
+    let projects = service.loadProjectsManifest()
+    let projectManifest = { id: projects.next_id, name: name }
+    projects.list.push(projectManifest)
+    projects.next_id++
+    service.saveProjectsManifest(projects)
+
+    // save this projects's data
+    localStorage.setItem(`project.${projectManifest.id}`, [])
   }
 }
 
