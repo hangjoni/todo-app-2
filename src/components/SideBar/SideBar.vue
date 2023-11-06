@@ -7,7 +7,6 @@
         p.name
       }}</RouterLink>
     </div>
-    {{ _projects }}
   </div>
 </template>
 

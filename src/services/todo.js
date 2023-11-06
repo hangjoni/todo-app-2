@@ -51,7 +51,23 @@ const service = {
     service.saveProjectsManifest(projects)
 
     // save this projects's data
-    localStorage.setItem(`project.${projectManifest.id}`, [])
+    let memoryName = `project.${projectManifest.id}`
+    console.log('saved new project to local storage named', memoryName)
+    localStorage.setItem(memoryName, '[]')
+  },
+  getProjectName(id) {
+    /* return project name if it exists */
+    let projects = service.loadProjectsManifest()
+    let project = projects.list.filter((p) => p.id === id)
+    if (project.length > 0) {
+      return project[0].name
+    }
+  },
+  saveProject(id, data) {
+    localStorage.setItem(`project.${id}`, JSON.stringify(data))
+  },
+  loadProject(id) {
+    return JSON.parse(localStorage.getItem(`project.${id}`))
   }
 }
 
