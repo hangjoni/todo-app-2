@@ -23,7 +23,7 @@ import { ref, inject } from 'vue'
 import ToDoList from './ToDoList.vue'
 import ToDoItemForm from './ToDoItemForm.vue'
 import ToDoSummary from './ToDoSummary.vue'
-import todoService from '../services/todo'
+import todoService from '../../services/todo'
 
 const $modals = inject('$modals')
 const _item = ref(todoService.getDefault())

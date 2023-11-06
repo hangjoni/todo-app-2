@@ -9,7 +9,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import todoService from '../services/todo'
+import todoService from '../../services/todo'
 
 const props = defineProps(['itemsList'])
 
