@@ -12,6 +12,7 @@
 import { inject, ref } from 'vue'
 import Modal from '../plugins/modals/Modal.vue'
 import service from '../services/todo.js'
+import eventBus from '../services/eventBus.js'
 
 const newProjectName = ref('')
 
@@ -20,6 +21,7 @@ const $modals = inject('$modals')
 const showCreateProjectModal = () => {
   $modals.show('create-new-project').then(() => {
     service.createToDoProject(newProjectName.value)
+    eventBus.emit('#updateProjects')
   })
 }
 </script>
